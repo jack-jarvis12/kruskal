@@ -1,0 +1,68 @@
+[0.018s] Invoking command in '/home/jack/kruskal/ros_ws/build/kruskal': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/jack/kruskal/ros_ws/src/kruskal -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/jack/kruskal/ros_ws/install/kruskal
+[0.136s] -- The C compiler identification is GNU 11.4.0
+[0.256s] -- The CXX compiler identification is GNU 11.4.0
+[0.267s] -- Detecting C compiler ABI info
+[0.389s] -- Detecting C compiler ABI info - done
+[0.396s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.396s] -- Detecting C compile features
+[0.396s] -- Detecting C compile features - done
+[0.399s] -- Detecting CXX compiler ABI info
+[0.497s] -- Detecting CXX compiler ABI info - done
+[0.504s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.505s] -- Detecting CXX compile features
+[0.505s] -- Detecting CXX compile features - done
+[0.508s] -- Found ament_cmake: 1.3.11 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.738s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[0.799s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[0.831s] -- Found ament_lint_auto: 0.12.11 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[0.920s] -- Added test 'copyright' to check source files copyright and LICENSE
+[0.924s] -- Added test 'flake8' to check Python code syntax and style conventions
+[0.926s] -- Added test 'lint_cmake' to check CMake code style
+[0.926s] -- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+[0.928s] -- Added test 'xmllint' to check XML markup files
+[0.930s] -- Configuring done
+[0.934s] -- Generating done
+[0.936s] -- Build files have been written to: /home/jack/kruskal/ros_ws/build/kruskal
+[0.941s] Invoked command in '/home/jack/kruskal/ros_ws/build/kruskal' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/jack/kruskal/ros_ws/src/kruskal -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/jack/kruskal/ros_ws/install/kruskal
+[0.942s] Invoking command in '/home/jack/kruskal/ros_ws/build/kruskal': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/jack/kruskal/ros_ws/build/kruskal -- -j12 -l12
+[1.012s] Invoked command in '/home/jack/kruskal/ros_ws/build/kruskal' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/jack/kruskal/ros_ws/build/kruskal -- -j12 -l12
+[1.033s] Invoking command in '/home/jack/kruskal/ros_ws/build/kruskal': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/jack/kruskal/ros_ws/build/kruskal
+[1.041s] -- Install configuration: ""
+[1.042s] -- Execute custom install script
+[1.042s] -- Symlinking: /home/jack/kruskal/ros_ws/install/kruskal/share/kruskal/config/drive_bot.rviz
+[1.054s] -- Symlinking: /home/jack/kruskal/ros_ws/install/kruskal/share/kruskal/config/empty.yaml
+[1.066s] -- Symlinking: /home/jack/kruskal/ros_ws/install/kruskal/share/kruskal/config/gazebo_params.yaml
+[1.078s] -- Symlinking: /home/jack/kruskal/ros_ws/install/kruskal/share/kruskal/config/kruskal.rvis.rviz
+[1.092s] -- Symlinking: /home/jack/kruskal/ros_ws/install/kruskal/share/kruskal/config/mapper_params_online_async.yaml
+[1.102s] -- Symlinking: /home/jack/kruskal/ros_ws/install/kruskal/share/kruskal/config/my_controllers.yaml
+[1.114s] -- Symlinking: /home/jack/kruskal/ros_ws/install/kruskal/share/kruskal/config/nav2_params.yaml
+[1.127s] -- Symlinking: /home/jack/kruskal/ros_ws/install/kruskal/share/kruskal/config/slam.rviz
+[1.138s] -- Symlinking: /home/jack/kruskal/ros_ws/install/kruskal/share/kruskal/config/twist_mux.yaml
+[1.150s] -- Symlinking: /home/jack/kruskal/ros_ws/install/kruskal/share/kruskal/description/gazebo_control.xacro
+[1.162s] -- Symlinking: /home/jack/kruskal/ros_ws/install/kruskal/share/kruskal/description/inertial_macros.xacro
+[1.173s] -- Symlinking: /home/jack/kruskal/ros_ws/install/kruskal/share/kruskal/description/lidar.xacro
+[1.198s] -- Symlinking: /home/jack/kruskal/ros_ws/install/kruskal/share/kruskal/description/robot.urdf.xacro
+[1.223s] -- Symlinking: /home/jack/kruskal/ros_ws/install/kruskal/share/kruskal/description/robot_core.xacro
+[1.234s] -- Symlinking: /home/jack/kruskal/ros_ws/install/kruskal/share/kruskal/description/ros2_control.xacro
+[1.261s] -- Symlinking: /home/jack/kruskal/ros_ws/install/kruskal/share/kruskal/launch/launch_sim.launch.py
+[1.272s] -- Symlinking: /home/jack/kruskal/ros_ws/install/kruskal/share/kruskal/launch/rsp.launch.py
+[1.285s] -- Symlinking: /home/jack/kruskal/ros_ws/install/kruskal/share/kruskal/worlds/empty.world
+[1.295s] -- Symlinking: /home/jack/kruskal/ros_ws/install/kruskal/share/kruskal/worlds/obstacles
+[1.308s] -- Symlinking: /home/jack/kruskal/ros_ws/install/kruskal/share/kruskal/worlds/playground.world
+[1.322s] -- Symlinking: /home/jack/kruskal/ros_ws/install/kruskal/share/kruskal/src/kruskal/navigate_to_coords.py
+[1.336s] -- Symlinking: /home/jack/kruskal/ros_ws/install/kruskal/share/ament_index/resource_index/package_run_dependencies/kruskal
+[1.348s] -- Symlinking: /home/jack/kruskal/ros_ws/install/kruskal/share/ament_index/resource_index/parent_prefix_path/kruskal
+[1.359s] -- Up-to-date symlink: /home/jack/kruskal/ros_ws/install/kruskal/share/kruskal/environment/ament_prefix_path.sh
+[1.360s] -- Symlinking: /home/jack/kruskal/ros_ws/install/kruskal/share/kruskal/environment/ament_prefix_path.dsv
+[1.372s] -- Up-to-date symlink: /home/jack/kruskal/ros_ws/install/kruskal/share/kruskal/environment/path.sh
+[1.372s] -- Symlinking: /home/jack/kruskal/ros_ws/install/kruskal/share/kruskal/environment/path.dsv
+[1.389s] -- Symlinking: /home/jack/kruskal/ros_ws/install/kruskal/share/kruskal/local_setup.bash
+[1.402s] -- Symlinking: /home/jack/kruskal/ros_ws/install/kruskal/share/kruskal/local_setup.sh
+[1.416s] -- Symlinking: /home/jack/kruskal/ros_ws/install/kruskal/share/kruskal/local_setup.zsh
+[1.429s] -- Symlinking: /home/jack/kruskal/ros_ws/install/kruskal/share/kruskal/local_setup.dsv
+[1.450s] -- Symlinking: /home/jack/kruskal/ros_ws/install/kruskal/share/kruskal/package.dsv
+[1.467s] -- Symlinking: /home/jack/kruskal/ros_ws/install/kruskal/share/ament_index/resource_index/packages/kruskal
+[1.480s] -- Symlinking: /home/jack/kruskal/ros_ws/install/kruskal/share/kruskal/cmake/kruskalConfig.cmake
+[1.493s] -- Symlinking: /home/jack/kruskal/ros_ws/install/kruskal/share/kruskal/cmake/kruskalConfig-version.cmake
+[1.504s] -- Symlinking: /home/jack/kruskal/ros_ws/install/kruskal/share/kruskal/package.xml
+[1.526s] Invoked command in '/home/jack/kruskal/ros_ws/build/kruskal' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/jack/kruskal/ros_ws/build/kruskal
