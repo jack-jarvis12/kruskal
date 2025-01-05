@@ -14,11 +14,16 @@ def wait_for_wake_word():
 
     porcupine = None
 
+    keyword_path = "speech/Crustal_en_linux_v3_0_0.ppn"
+    if os.name == "nt":
+        keyword_path = "speech/Crustal_en_windows_v3_0_0.ppn"
+
+
     try:
         # Initialise Porcupine
         porcupine = pvporcupine.create(
             access_key=os.getenv("PICOVOICE_ACCESS_KEY"),
-            keyword_paths=["speech/Crustal_en_windows_v3_0_0.ppn"],
+            keyword_paths=[keyword_path],
         )
         print("Porcupine initialised successfully.")
 
