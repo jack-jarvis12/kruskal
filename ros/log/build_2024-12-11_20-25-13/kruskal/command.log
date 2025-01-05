@@ -1,6 +1,0 @@
-Invoking command in '/home/jack/ROS/build/kruskal': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/jack/ROS/kruskal -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/jack/ROS/install/kruskal
-Invoked command in '/home/jack/ROS/build/kruskal' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/jack/ROS/kruskal -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/jack/ROS/install/kruskal
-Invoking command in '/home/jack/ROS/build/kruskal': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/jack/ROS/build/kruskal -- -j12 -l12
-Invoked command in '/home/jack/ROS/build/kruskal' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/jack/ROS/build/kruskal -- -j12 -l12
-Invoking command in '/home/jack/ROS/build/kruskal': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/jack/ROS/build/kruskal
-Invoked command in '/home/jack/ROS/build/kruskal' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/jack/ROS/build/kruskal

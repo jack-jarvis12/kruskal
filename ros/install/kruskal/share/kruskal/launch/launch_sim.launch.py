@@ -1,1 +1,0 @@
-/home/jack/ROS/kruskal/launch/launch_sim.launch.py

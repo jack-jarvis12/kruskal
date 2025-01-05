@@ -1,4 +1,0 @@
-Invoking command in '/home/jack/ROS/build/kruskal': /usr/bin/cmake --build /home/jack/ROS/build/kruskal -- -j12 -l12
-Invoked command in '/home/jack/ROS/build/kruskal' returned '0': /usr/bin/cmake --build /home/jack/ROS/build/kruskal -- -j12 -l12
-Invoking command in '/home/jack/ROS/build/kruskal': /usr/bin/cmake --install /home/jack/ROS/build/kruskal
-Invoked command in '/home/jack/ROS/build/kruskal' returned '0': /usr/bin/cmake --install /home/jack/ROS/build/kruskal
