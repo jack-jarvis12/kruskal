@@ -1,0 +1,1 @@
+/home/jack/ROS/build/kruskal/ament_cmake_core/kruskalConfig.cmake
