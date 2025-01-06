@@ -19,6 +19,7 @@
 /home/jack/kruskal/ros_ws/install/kruskal/share/kruskal/worlds/obstacles
 /home/jack/kruskal/ros_ws/install/kruskal/share/kruskal/worlds/playground.world
 /home/jack/kruskal/ros_ws/install/kruskal/share/kruskal/src/kruskal/navigate_to_coords.py
+/home/jack/kruskal/ros_ws/install/kruskal/share/kruskal/src/kruskal/trick.py
 /home/jack/kruskal/ros_ws/install/kruskal/lib/kruskal/navigate_to_coords.py
 /home/jack/kruskal/ros_ws/install/kruskal/share/ament_index/resource_index/package_run_dependencies/kruskal
 /home/jack/kruskal/ros_ws/install/kruskal/share/ament_index/resource_index/parent_prefix_path/kruskal

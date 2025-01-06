@@ -1,1 +1,0 @@
-/home/jack/kruskal/ros_ws/src/build/voice_commands/ament_cmake_environment_hooks/local_setup.bash

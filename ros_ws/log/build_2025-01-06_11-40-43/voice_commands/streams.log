@@ -1,0 +1,53 @@
+[0.013s] Invoking command in '/home/jack/kruskal/ros_ws/build/voice_commands': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble PS1=(venv) \[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ VIRTUAL_ENV_PROMPT=(venv) /usr/bin/cmake --build /home/jack/kruskal/ros_ws/build/voice_commands -- -j12 -l12
+[0.038s] -- Found ament_cmake: 1.3.11 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.139s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[0.150s] -- Found ament_lint_auto: 0.12.11 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[0.949s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[0.949s] -- Configured cppcheck include dirs: 
+[0.949s] -- Configured cppcheck exclude dirs and/or files: 
+[1.038s] -- Added test 'flake8' to check Python code syntax and style conventions
+[1.205s] -- Added test 'lint_cmake' to check CMake code style
+[1.292s] -- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+[1.974s] -- Added test 'uncrustify' to check C / C++ code style
+[1.975s] -- Configured uncrustify additional arguments: 
+[2.057s] -- Added test 'xmllint' to check XML markup files
+[2.058s] -- Configuring done
+[2.061s] -- Generating done
+[2.063s] -- Build files have been written to: /home/jack/kruskal/ros_ws/build/voice_commands
+[2.087s] Invoked command in '/home/jack/kruskal/ros_ws/build/voice_commands' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble PS1=(venv) \[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ VIRTUAL_ENV_PROMPT=(venv) /usr/bin/cmake --build /home/jack/kruskal/ros_ws/build/voice_commands -- -j12 -l12
+[2.090s] Invoking command in '/home/jack/kruskal/ros_ws/build/voice_commands': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble PS1=(venv) \[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ VIRTUAL_ENV_PROMPT=(venv) /usr/bin/cmake --install /home/jack/kruskal/ros_ws/build/voice_commands
+[2.104s] -- Install configuration: ""
+[2.105s] -- Execute custom install script
+[2.106s] -- Up-to-date symlink: /home/jack/kruskal/ros_ws/install/voice_commands/share/voice_commands/sounds/__init__.py
+[2.106s] -- Up-to-date symlink: /home/jack/kruskal/ros_ws/install/voice_commands/share/voice_commands/sounds/__pycache__/__init__.cpython-310.pyc
+[2.106s] -- Up-to-date symlink: /home/jack/kruskal/ros_ws/install/voice_commands/share/voice_commands/sounds/__pycache__/beep_boop.cpython-310.pyc
+[2.107s] -- Up-to-date symlink: /home/jack/kruskal/ros_ws/install/voice_commands/share/voice_commands/sounds/beep_boop.py
+[2.107s] -- Up-to-date symlink: /home/jack/kruskal/ros_ws/install/voice_commands/share/voice_commands/sounds/beep_boop_1.wav
+[2.107s] -- Up-to-date symlink: /home/jack/kruskal/ros_ws/install/voice_commands/share/voice_commands/sounds/beep_boop_2.wav
+[2.107s] -- Up-to-date symlink: /home/jack/kruskal/ros_ws/install/voice_commands/share/voice_commands/sounds/beep_boop_3.wav
+[2.108s] -- Up-to-date symlink: /home/jack/kruskal/ros_ws/install/voice_commands/share/voice_commands/sounds/robot_full.mp3
+[2.108s] -- Symlinking: /home/jack/kruskal/ros_ws/install/voice_commands/share/voice_commands/speech/Crustal_en_linux_v3_0_0.ppn
+[2.120s] -- Symlinking: /home/jack/kruskal/ros_ws/install/voice_commands/share/voice_commands/speech/Crustal_en_windows_v3_0_0.ppn
+[2.133s] -- Symlinking: /home/jack/kruskal/ros_ws/install/voice_commands/share/voice_commands/speech/__init__.py
+[2.143s] -- Symlinking: /home/jack/kruskal/ros_ws/install/voice_commands/share/voice_commands/speech/__pycache__/__init__.cpython-310.pyc
+[2.153s] -- Symlinking: /home/jack/kruskal/ros_ws/install/voice_commands/share/voice_commands/speech/__pycache__/transcribe_request.cpython-310.pyc
+[2.163s] -- Symlinking: /home/jack/kruskal/ros_ws/install/voice_commands/share/voice_commands/speech/__pycache__/wait_for_wake_word.cpython-310.pyc
+[2.174s] -- Symlinking: /home/jack/kruskal/ros_ws/install/voice_commands/share/voice_commands/speech/transcribe_request.py
+[2.184s] -- Symlinking: /home/jack/kruskal/ros_ws/install/voice_commands/share/voice_commands/speech/wait_for_wake_word.py
+[2.195s] -- Up-to-date symlink: /home/jack/kruskal/ros_ws/install/voice_commands/lib/voice_commands/voice_command_publisher.py
+[2.195s] -- Up-to-date symlink: /home/jack/kruskal/ros_ws/install/voice_commands/share/ament_index/resource_index/package_run_dependencies/voice_commands
+[2.195s] -- Up-to-date symlink: /home/jack/kruskal/ros_ws/install/voice_commands/share/ament_index/resource_index/parent_prefix_path/voice_commands
+[2.195s] -- Up-to-date symlink: /home/jack/kruskal/ros_ws/install/voice_commands/share/voice_commands/environment/ament_prefix_path.sh
+[2.195s] -- Up-to-date symlink: /home/jack/kruskal/ros_ws/install/voice_commands/share/voice_commands/environment/ament_prefix_path.dsv
+[2.195s] -- Up-to-date symlink: /home/jack/kruskal/ros_ws/install/voice_commands/share/voice_commands/environment/path.sh
+[2.195s] -- Up-to-date symlink: /home/jack/kruskal/ros_ws/install/voice_commands/share/voice_commands/environment/path.dsv
+[2.195s] -- Up-to-date symlink: /home/jack/kruskal/ros_ws/install/voice_commands/share/voice_commands/local_setup.bash
+[2.196s] -- Up-to-date symlink: /home/jack/kruskal/ros_ws/install/voice_commands/share/voice_commands/local_setup.sh
+[2.196s] -- Up-to-date symlink: /home/jack/kruskal/ros_ws/install/voice_commands/share/voice_commands/local_setup.zsh
+[2.196s] -- Up-to-date symlink: /home/jack/kruskal/ros_ws/install/voice_commands/share/voice_commands/local_setup.dsv
+[2.196s] -- Symlinking: /home/jack/kruskal/ros_ws/install/voice_commands/share/voice_commands/package.dsv
+[2.207s] -- Up-to-date symlink: /home/jack/kruskal/ros_ws/install/voice_commands/share/ament_index/resource_index/packages/voice_commands
+[2.207s] -- Up-to-date symlink: /home/jack/kruskal/ros_ws/install/voice_commands/share/voice_commands/cmake/voice_commandsConfig.cmake
+[2.207s] -- Up-to-date symlink: /home/jack/kruskal/ros_ws/install/voice_commands/share/voice_commands/cmake/voice_commandsConfig-version.cmake
+[2.207s] -- Up-to-date symlink: /home/jack/kruskal/ros_ws/install/voice_commands/share/voice_commands/package.xml
+[2.210s] Invoked command in '/home/jack/kruskal/ros_ws/build/voice_commands' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble PS1=(venv) \[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ VIRTUAL_ENV_PROMPT=(venv) /usr/bin/cmake --install /home/jack/kruskal/ros_ws/build/voice_commands

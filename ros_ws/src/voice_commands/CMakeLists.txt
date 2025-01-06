@@ -23,6 +23,11 @@ if(BUILD_TESTING)
   ament_lint_auto_find_test_dependencies()
 endif()
 
+install(
+  DIRECTORY src/voice_commands/sounds src/voice_commands/speech
+  DESTINATION share/${PROJECT_NAME}
+)
+
 
 install(PROGRAMS
   src/voice_commands/voice_command_publisher.py  # Path to your Python script
