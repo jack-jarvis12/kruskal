@@ -1,4 +1,5 @@
 import os
+import platform
 
 import pvporcupine
 import sounddevice as sd
@@ -14,16 +15,19 @@ def wait_for_wake_word():
 
     porcupine = None
 
-    keyword_path = "speech/Crustal_en_linux_v3_0_0.ppn"
-    if os.name == "nt":
-        keyword_path = "speech/Crustal_en_windows_v3_0_0.ppn"
+    keyword_paths = ["speech/Crustal_en_windows_v3_0_0.ppn", "speech/Cross-call_en_windows_v3_0_0.ppn"]
+    if platform.system() == "Linux":
+        if platform.machine().startswith("arm") or platform.machine() == "aarch64":
+            keyword_paths = ["speech/Crustal_en_raspberry-pi_v3_0_0.ppn", "speech/Cross-call_en_raspberry-pi_v3_0_0.ppn"]
+        else:
+            keyword_paths = ["speech/Crustal_en_linux_v3_0_0.ppn", "speech/Cross-call_en_linux_v3_0_0.ppn"]
 
 
     try:
         # Initialise Porcupine
         porcupine = pvporcupine.create(
             access_key=os.getenv("PICOVOICE_ACCESS_KEY"),
-            keyword_paths=[keyword_path],
+            keyword_paths=keyword_paths,
         )
         print("Porcupine initialised successfully.")
 
