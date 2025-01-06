@@ -1,6 +1,6 @@
 from setuptools import setup
 
-package_name = 'kruskal'
+package_name = 'voice_commands'
 
 setup(
     name=package_name,
@@ -20,8 +20,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'navigate_to_coords = kruskal.navigate_to_coords:main',  # <-- Your script here
-            'voice_command_publisher = kruskal.voice_command_publisher:main',
+            'voice_command_publisher = voice_commands.voice_command_publisher:main',
         ],
     },
 )
