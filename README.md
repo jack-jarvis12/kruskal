@@ -7,7 +7,7 @@ The Computer Scientists best (and only) friend
 
 
 
-| ![image](https://github.com/user-attachments/assets/97755708-bfa8-4f49-81db-8db73ac2dd9a) | ![image](https://github.com/user-attachments/assets/7f993f19-b25d-457e-aabf-60a0cc71da6c) |
+| ![image](https://github.com/user-attachments/assets/97755708-bfa8-4f49-81db-8db73ac2dd9a) | ![image](https://github.com/user-attachments/assets/15b5b490-586f-4a60-9104-33b5c6a117d9) |
 |------------------------|------------------------|
 
 
