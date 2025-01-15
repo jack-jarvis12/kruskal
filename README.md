@@ -4,11 +4,12 @@ The Computer Scientists best (and only) friend
 </br>
 
 ## Design Concept #1
-
-
-
 | ![image](https://github.com/user-attachments/assets/97755708-bfa8-4f49-81db-8db73ac2dd9a) | ![image](https://github.com/user-attachments/assets/15b5b490-586f-4a60-9104-33b5c6a117d9) |
 |------------------------|------------------------|
+
+## Design Concept #2
+| ![image](https://github.com/user-attachments/assets/550af2ab-960b-4a3e-9480-5410c6e8bce4) |
+|------------------------|
 
 
 ### Parts List
