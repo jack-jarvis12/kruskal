@@ -8,7 +8,7 @@ The Computer Scientists best (and only) friend
 |------------------------|------------------------|
 
 ## Design Concept #2
-| ![image](https://github.com/user-attachments/assets/550af2ab-960b-4a3e-9480-5410c6e8bce4) |
+| ![image](https://github.com/user-attachments/assets/adc7cf6d-da5a-4ada-80dd-0b85529581b8) |
 |------------------------|
 
 
