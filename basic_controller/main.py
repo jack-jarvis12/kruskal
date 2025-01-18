@@ -22,18 +22,15 @@ class SerialDriver:
     def close(self):
         self.ser.close()
 
-class DiffDrive:
-    def __init__(self, driver):
-        self.driver = driver
-        
+class DiffDrive(SerialDriver):        
     def drive(self, speed):
-        self.driver.setMotorSpeedRPS(speed, speed)
+        self.setMotorSpeedRPS(speed, speed)
 
     def turn(self, speed):
-        self.driver.setMotorSpeedRPS(speed, -speed)
+        self.setMotorSpeedRPS(speed, -speed)
 
     def stop(self):
-        self.driver.setMotorSpeedRPS(0, 0)
+        self.setMotorSpeedRPS(0, 0)
     
 
     
@@ -64,14 +61,11 @@ def main():
         sys.exit(1)
     
 
-    driver = SerialDriver(sys.argv[1])
-    diffDrive = DiffDrive(driver)
-    # driver.setMotorSpeedRPS(0, 1)
+    driver = DiffDrive(sys.argv[1])
 
-    # driver.setMotorSpeedRPS(0, 0)
 
-    with keyboard.Listener(on_press=lambda key: on_press(key, diffDrive), 
-                       on_release=lambda key: on_release(key, diffDrive)) as listener:
+    with keyboard.Listener(on_press=lambda key: on_press(key, driver), 
+                       on_release=lambda key: on_release(key, driver)) as listener:
         listener.join()
 
 
