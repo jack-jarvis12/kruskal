@@ -1,0 +1,6 @@
+[submodule "ros_ws/src/diffdrive_arduino"]
+	path = ros_ws/src/diffdrive_arduino
+	url = https://github.com/joshnewans/diffdrive_arduino
+[submodule "ros_ws/src/serial"]
+	path = ros_ws/src/serial
+	url = https://github.com/joshnewans/serial
