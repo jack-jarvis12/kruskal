@@ -1,0 +1,22 @@
+Motor 1
+Motor driver:	pins 1, 2, 3
+Arduino:	pins 9, 2, 3
+
+Motor 2
+Motor driver: 	pins 4, 5, 6
+Arduino:	pins 4, 5, 10
+
+
+
+
+
+54760/20 = 2738
+54690/20 = 2734.5
+54868/20 = 2743.4
+57617/21 = 2743.6
+
+
+2740 counts/rev
+30 loop/sec
+
+1 rev/sec = 91.3 counts/loop

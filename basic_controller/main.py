@@ -12,12 +12,23 @@ class SerialDriver:
         attempts = 0
         message = "m "+str(rps1*91.3)+" "+str(rps2*91.3)+"\r"
         while response == "" or attempts > 20:
-            # print(message)
             self.ser.reset_input_buffer()
             self.ser.write(message.encode())
             response = self.ser.readline().decode()
 
         print("Response:", response)
+
+    def getMotorPosition(self):
+        response = ""
+        attempts = 0
+        message = "e"
+        while response == "" or attempts > 20:
+            self.ser.reset_input_buffer()
+            self.ser.write(message.encode())
+            response = self.ser.readline().decode()
+
+        print("Response:", response)
+        return response
 
     def close(self):
         self.ser.close()
@@ -35,7 +46,7 @@ class DiffDrive(SerialDriver):
 
     
 def on_press(key, diffDrive):
-    print(f"Key {key} is Pressed.")
+    # print(f"Key {key} is Pressed.")
     try:
         if key.char == 'w':
             diffDrive.drive(1)
@@ -49,8 +60,9 @@ def on_press(key, diffDrive):
         pass
 
 def on_release(key, diffDrive):
-    print(f"Key {key} is released.")
+    # print(f"Key {key} is released.")
     diffDrive.stop()
+    diffDrive.getMotorPosition()
 
     if key == keyboard.Key.esc:
         return False
