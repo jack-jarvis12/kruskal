@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>KRUSKAL CONTROL PANEL</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Courier New', monospace; /* Changed to a digital font */
+            background: #000; /* Dark background for a matrix look */
+            color: #00ff00; /* Neon green text */
+            display: flex;
+            flex-wrap: wrap;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .quarter {
+            width: 50%;
+            height: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            box-sizing: border-box;
+        }
+        .quarter:nth-child(odd) {
+            background: #003300; /* Dark green background for odd quarters */
+        }
+        .quarter:nth-child(even) {
+            background: #001100; /* Darker green for even quarters */
+        }
+        .content {
+            width: 95%;
+            height: 95%;
+            background: rgba(0, 0, 0, 0.7); /* Darker background with slight transparency */
+            border: 2px solid #00ff00; /* Neon green border */
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-sizing: border-box;
+            text-align: center;
+            z-index: 10;
+            /* Remove transparency from the content */
+        }
+
+        /* h1, h2, h3, p {
+            text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00; 
+        } */
+        .neonGreen {
+            color: #00ff00;
+            font-size: 2rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            text-shadow: 0 0 15px #00ff00, 0 0 30px #00ff00, 0 0 50px #00ff00;
+        }
+
+        .green {
+            color: #00ff00;
+            font-size: 2rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+
+        }
+        .neonRed {
+            color: #ff0000;
+            font-size: 2rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            text-shadow: 0 0 15px #ff0000, 0 0 30px #ff0000, 0 0 50px #ff0000;
+        }
+        .glow {
+            font-size: 1rem;
+            color: #00ff00;
+            text-shadow: 0 0 10px rgba(0, 255, 0, 0.7), 0 0 20px rgba(0, 255, 0, 0.7); /* Neon green glow effect */
+        }
+        .futuristic-border {
+            border: 2px solid #00ff00;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+        }
+
+        /* Styling for sliders and button container */
+        .control-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column; /* Stack sliders and button vertically */
+            gap: 20px; /* Space between the sliders and button */
+            width: 100%;
+            height: 100%;
+            text-align: center;
+        }
+
+        .slider {
+            width: 500px;
+            height: 40px;
+            appearance: none;
+            border-radius: 5px;
+            background: #444;
+            outline: none;
+        }
+
+        .slider::-moz-range-track {
+            height: 10px;
+            background: #333;
+            border-radius: 5px;
+        }
+
+        .slider::-moz-range-thumb {
+            width: 40px;
+            height: 40px;
+            background: #00ff00;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .slider:active::-moz-range-thumb {
+            background: #ff5722;
+        }
+
+        .button {
+            background-color: rgba(0, 255, 0, 0.2); /* Semi-transparent background for the glassy effect */
+            border: 2px solid #00ff00;
+            color: #00ff00;
+            padding: 20px 40px; /* Larger padding */
+            text-transform: uppercase;
+            cursor: pointer;
+            font-size: 1.5rem; /* Larger font size */
+            font-weight: bold;
+            /* text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00; */
+            border-radius: 5px; /* Rounded corners */
+            backdrop-filter: blur(5px); /* Apply blur to the button */
+            box-shadow: 0 0 15px rgba(0, 255, 0, 0.7); /* Glowing button effect */
+            transition: all 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: rgba(0, 255, 0, 0.3); /* Slightly darker green when hovering */
+            box-shadow: 0 0 20px rgba(0, 255, 0, 1); /* Stronger glow on hover */
+        }
+
+        .canvas {
+            border: 2px solid #00ff00;
+            background-color: rgba(0, 0, 0, 0.8);
+            box-shadow: 0 0 10px rgba(0, 255, 0, 0.7); /* Glow effect */
+            width: 90%;  /* Set canvas width */
+            height: 90%; /* Set canvas height */
+            border-radius: 10px;
+        }
+
+        .box {
+            border: 2px solid #00ff00;
+            background-color: rgba(0, 0, 0, 0.8);
+            box-shadow: 0 0 10px rgba(0, 255, 0, 0.7); /* Glow effect */
+            width: 60%;
+            height: 60%;
+            border-radius: 10px;
+            margin-left: 2%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .command-line {
+            position: absolute;
+            width: 80%;
+            height: 80%;
+            background-color: rgba(0, 0, 0, 0.8);
+            border: 2px solid #00ff00;
+            padding: 10px;
+            color: #00ff00;
+            font-family: 'Courier New', monospace;
+            overflow-y: auto;
+            box-shadow: 0 0 10px rgba(0, 255, 0, 0.7);
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="quarter">
+        <div class="content futuristic-border">
+            <div class="control-container">
+                <p class="green">KRUSKAL CONTROL PANEL</p>
+                <label class="slider-label glow" for="slider1">Throttle 1: <span id="slider1Value" class="value-display">0</span></label>
+                <input type="range" id="slider1" class="slider" min="-1.5" max="1.5" step="0.1" value="0">
+                <label class="slider-label glow" for="slider2">Throttle 2: <span id="slider2Value" class="value-display">0</span></label>
+                <input type="range" id="slider2" class="slider" min="-1.5" max="1.5" step="0.1" value="0">
+                <button class="button" onclick="resetSliders()">RESET</button>
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="quarter">
+        <div class="content">
+            <canvas id="wheel1" class="canvas"></canvas>
+            <canvas id="wheel2" class="canvas"></canvas>
+        </div>
+    </div>
+
+
+    <div class="quarter">
+        <div class="content futuristic-border">
+            <canvas class="box" id="signal"></canvas>
+            <div class="box">
+                <h3 class="neonGreen" id="online">SIGNAL AQCUIRED</h3>
+            </div>
+            <div class="box">
+                <h3 class="neonGreen" id="system">ALL SYSTEMS ONLINE</h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="quarter">
+        <div class="content futuristic-border">
+            <div class="command-line">
+                <div id="output" style="flex-grow: 1; padding: 5px; overflow-y: auto;"></div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="static/driver.js"></script>
+    <script src="driver.js"></script>
+</body>
+</html>

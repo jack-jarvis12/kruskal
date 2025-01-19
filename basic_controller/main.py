@@ -2,6 +2,7 @@ import serial
 import sys
 import time
 from pynput import keyboard
+from flask import Flask, request, jsonify
 
 class SerialDriver:
     def __init__(self, serial_port):
@@ -10,24 +11,27 @@ class SerialDriver:
     def setMotorSpeedRPS(self, rps1, rps2):
         response = ""
         attempts = 0
-        message = "m "+str(rps1*91.3)+" "+str(rps2*91.3)+"\r"
+        message = "m "+str(round(rps1*91.3))+" "+str(round(rps2*91.3))+"\r"
         while response == "" or attempts > 20:
+            # print(message)
             self.ser.reset_input_buffer()
             self.ser.write(message.encode())
             response = self.ser.readline().decode()
 
         print("Response:", response)
+        
 
     def getMotorPosition(self):
         response = ""
         attempts = 0
-        message = "e"
+        message = "e\r"
         while response == "" or attempts > 20:
+            # print(message)
             self.ser.reset_input_buffer()
             self.ser.write(message.encode())
             response = self.ser.readline().decode()
 
-        print("Response:", response)
+        print("Position:", response)
         return response
 
     def close(self):
@@ -44,42 +48,53 @@ class DiffDrive(SerialDriver):
         self.setMotorSpeedRPS(0, 0)
     
 
-    
-def on_press(key, diffDrive):
-    # print(f"Key {key} is Pressed.")
+
+app = Flask(__name__, static_folder='static',)
+driver = None
+
+@app.route('/speed', methods=['GET'])
+def speed():
+    global driver
     try:
-        if key.char == 'w':
-            diffDrive.drive(1)
-        elif key.char == "s":
-            diffDrive.drive(-1)
-        elif key.char == "d":
-            diffDrive.turn(1)
-        elif key.char == "a":
-            diffDrive.turn(-1)
-    except AttributeError:
-        pass
+        # Get the query parameters
+        rps1 = request.args.get('rps1', type=float)
+        rps2 = request.args.get('rps2', type=float)
 
-def on_release(key, diffDrive):
-    # print(f"Key {key} is released.")
-    diffDrive.stop()
-    diffDrive.getMotorPosition()
+        # Validate inputs
+        if rps1 is None or rps2 is None:
+            return jsonify({"error": "Both rps1 and rps2 are required"}), 400
 
-    if key == keyboard.Key.esc:
-        return False
+        driver.setMotorSpeedRPS(rps1, rps2)
+        positions = driver.getMotorPosition().strip().split(" ")
+        
+
+        return jsonify(positions), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+    
+@app.route('/')
+def index():
+    return app.send_static_file('index.html')
+
+@app.route('/position', methods=['GET'])
+def position():
+    global driver
+    try:
+        positions = driver.getMotorPosition().strip().split(" ")
+        return jsonify(positions), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+    
 
 def main():
     if len(sys.argv) != 2:
         print("Usage: python script.py <serial_port>")
         sys.exit(1)
     
+    global driver
+    driver = SerialDriver(sys.argv[1])
 
-    driver = DiffDrive(sys.argv[1])
-
-
-    with keyboard.Listener(on_press=lambda key: on_press(key, driver), 
-                       on_release=lambda key: on_release(key, driver)) as listener:
-        listener.join()
-
+    app.run(host='0.0.0.0', port=5000)
 
     driver.close()
 
