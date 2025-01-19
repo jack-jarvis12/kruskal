@@ -67,9 +67,7 @@ def speed():
         positions = driver.getMotorPosition().strip().split(" ")
         
 
-        response =  jsonify(positions)
-        response.headers.add('Access-Control-Allow-Origin', '*')
-        return response, 200
+        return jsonify(positions), 200
     except Exception as e:
         return jsonify({"error": str(e)}), 500
     
