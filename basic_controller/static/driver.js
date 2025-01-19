@@ -150,7 +150,7 @@ async function sendSpeed() {
     slider1Value.innerHTML = slider1.value;
     slider2Value.innerHTML = slider2.value;
 
-    fetch(`/speed?rps1=${slider1.value}&rps2=${slider2.value}`)
+    fetch(`http://192.168.234.45:5000/speed?rps1=${slider1.value}&rps2=${slider2.value}`)
         .then(response => response.json())
         .then(data => {
             if (!online) {
