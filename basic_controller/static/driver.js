@@ -187,7 +187,7 @@ function resetSliders() {
     slider2Value.innerHTML = 0;
 }
 
-setInterval(sendSpeed, 200);
+setInterval(sendSpeed, 100);
 
 
 function updateOnlineDisplay() {
