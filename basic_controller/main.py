@@ -1,7 +1,6 @@
 import serial
 import sys
 import time
-from pynput import keyboard
 from flask import Flask, request, jsonify
 
 class SerialDriver:
