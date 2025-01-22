@@ -230,4 +230,76 @@ function updateOnlineDisplay() {
 setInterval(updateOnlineDisplay, 500);
 
 
+const keys = {
+    w: false,
+    a: false,
+    s: false,
+    d: false
+  };
 
+function handleKeyDown(event) {
+    switch (event.key.toLowerCase()) {
+      case 'w':
+        keys.w = true;
+        console.log("W key is pressed down");
+        slider2.value = -1;
+        slider2Value.innerHTML = -1;
+        slider1.value = -1;
+        slider1Value.innerHTML = -1;
+        break;
+      case 'a':
+        keys.a = true;
+        console.log("A key is pressed down");
+        slider2.value = 1;
+        slider2Value.innerHTML = 1;
+        slider1.value = -1;
+        slider1Value.innerHTML = -1;
+        break;
+      case 's':
+        keys.s = true;
+        console.log("S key is pressed down");
+        slider2.value = 1;
+        slider2Value.innerHTML = 1;
+        slider1.value = 1;
+        slider1Value.innerHTML = 1;
+        break;
+      case 'd':
+        keys.d = true;
+        console.log("D key is pressed down");
+        slider2.value = -1;
+        slider2Value.innerHTML = -1;
+        slider1.value = 1;
+        slider1Value.innerHTML = 1;
+        break;
+    }
+  }
+  
+  // Callback function for keyup events
+  function handleKeyUp(event) {
+    switch (event.key.toLowerCase()) {
+      case 'w':
+        keys.w = false;
+        console.log("W key is released");
+        resetSliders()
+        break;
+      case 'a':
+        keys.a = false;
+        console.log("A key is released");
+        resetSliders()
+        break;
+      case 's':
+        keys.s = false;
+        console.log("S key is released");
+        resetSliders()
+        break;
+      case 'd':
+        keys.d = false;
+        console.log("D key is released");
+        resetSliders()
+        break;
+    }
+  }
+  
+  // Attach event listeners to the document
+  document.addEventListener('keydown', handleKeyDown);
+  document.addEventListener('keyup', handleKeyUp);
