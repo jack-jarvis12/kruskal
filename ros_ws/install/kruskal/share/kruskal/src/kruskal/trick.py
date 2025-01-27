@@ -1,1 +1,0 @@
-/home/jack/kruskal/ros_ws/src/kruskal/src/kruskal/trick.py

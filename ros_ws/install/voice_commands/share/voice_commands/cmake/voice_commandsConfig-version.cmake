@@ -1,1 +1,0 @@
-/home/jack/kruskal/ros_ws/build/voice_commands/ament_cmake_core/voice_commandsConfig-version.cmake

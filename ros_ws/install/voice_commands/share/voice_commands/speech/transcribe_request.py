@@ -1,1 +1,0 @@
-/home/jack/kruskal/ros_ws/src/voice_commands/src/voice_commands/speech/transcribe_request.py

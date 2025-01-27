@@ -1,1 +1,0 @@
-/home/jack/kruskal/ros_ws/src/kruskal/launch/rsp.launch.py
