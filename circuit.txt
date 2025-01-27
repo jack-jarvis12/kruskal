@@ -1,11 +1,23 @@
 Motor 1
-Motor driver:	pins 1, 2, 3
-Arduino:	pins 9, 2, 3
++ -> Out2
+- -> Out1
+yellow -> D2
+green -> D3
+
 
 Motor 2
-Motor driver: 	pins 4, 5, 6
-Arduino:	pins 4, 5, 10
++ -> Out4
+- -> Out3
+Yellow -> A5
+Green -> A4
 
+Motor Driver
+1En -> D13
+1A -> D10
+1B -> D6
+2A -> D5
+2B -> D9
+2En -> D12
 
 
 
