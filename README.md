@@ -5,7 +5,7 @@ The Computer Scientists best (and only) friend
 
 
 ## Design
-| ![image](https://github.com/user-attachments/assets/06303ec0-d3ef-46ef-95a1-cce3d12a0fbf) | ![image](https://github.com/user-attachments/assets/5d3434fa-0be5-404e-ad49-6f2dcfbc0c72) |
+| ![image](https://github.com/user-attachments/assets/a3c321a2-77ac-4b91-bfee-6c487281dffa) | ![image](https://github.com/user-attachments/assets/5d3434fa-0be5-404e-ad49-6f2dcfbc0c72) |
 |------------------------|------------------------|
 
 
