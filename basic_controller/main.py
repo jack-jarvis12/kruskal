@@ -2,6 +2,8 @@ import serial
 import sys
 import time
 from flask import Flask, request, jsonify
+from gpiozero import PWMLED, Button
+from signal import pause
 
 class SerialDriver:
     def __init__(self, serial_port):
@@ -85,11 +87,31 @@ def position():
         return jsonify({"error": str(e)}), 500
     
 
+
+# Define the PWMLED and Button pins
+led = PWMLED(17)  # GPIO pin 17 for PWMLED
+button = Button(3)  # GPIO pin 3 for Button (updated)
+
+# State tracking for the LED mode
+pulsing = True
+
+def toggle_led():
+	global pulsing
+	pulsing = not pulsing
+	if not pulsing:
+		led.value = 0.1
+	else:
+		led.pulse(fade_in_time=0.4, fade_out_time=0.6)
+
 def main():
     if len(sys.argv) != 2:
         print("Usage: python script.py <serial_port>")
         sys.exit(1)
     
+    button.when_pressed = toggle_led
+
+    toggle_led()
+
     global driver
     driver = SerialDriver(sys.argv[1])
 
