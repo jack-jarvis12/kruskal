@@ -237,39 +237,42 @@ const keys = {
     d: false
   };
 
+
+speed = 2
+
 function handleKeyDown(event) {
     switch (event.key.toLowerCase()) {
       case 'w':
         keys.w = true;
         console.log("W key is pressed down");
-        slider2.value = -1;
-        slider2Value.innerHTML = -1;
-        slider1.value = -1;
-        slider1Value.innerHTML = -1;
+        slider2.value = -speed;
+        slider2Value.innerHTML = -speed;
+        slider1.value = -speed;
+        slider1Value.innerHTML = -speed;
         break;
       case 'a':
         keys.a = true;
         console.log("A key is pressed down");
-        slider2.value = 1;
-        slider2Value.innerHTML = 1;
-        slider1.value = -1;
-        slider1Value.innerHTML = -1;
+        slider2.value = speed;
+        slider2Value.innerHTML = speed;
+        slider1.value = -speed;
+        slider1Value.innerHTML = -speed;
         break;
       case 's':
         keys.s = true;
         console.log("S key is pressed down");
-        slider2.value = 1;
-        slider2Value.innerHTML = 1;
-        slider1.value = 1;
-        slider1Value.innerHTML = 1;
+        slider2.value = speed;
+        slider2Value.innerHTML = speed;
+        slider1.value = speed;
+        slider1Value.innerHTML = speed;
         break;
       case 'd':
         keys.d = true;
         console.log("D key is pressed down");
-        slider2.value = -1;
-        slider2Value.innerHTML = -1;
-        slider1.value = 1;
-        slider1Value.innerHTML = 1;
+        slider2.value = -speed;
+        slider2Value.innerHTML = -speed;
+        slider1.value = speed;
+        slider1Value.innerHTML = speed;
         break;
     }
   }
