@@ -1,0 +1,8 @@
+source;share/kruskal/hook/cmake_prefix_path.ps1
+source;share/kruskal/hook/cmake_prefix_path.dsv
+source;share/kruskal/hook/cmake_prefix_path.sh
+source;share/kruskal/local_setup.bash
+source;share/kruskal/local_setup.dsv
+source;share/kruskal/local_setup.ps1
+source;share/kruskal/local_setup.sh
+source;share/kruskal/local_setup.zsh

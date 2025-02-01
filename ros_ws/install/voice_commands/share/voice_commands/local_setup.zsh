@@ -1,0 +1,1 @@
+/home/kruskal/kruskal/ros_ws/build/voice_commands/ament_cmake_environment_hooks/local_setup.zsh
