@@ -122,7 +122,7 @@ def main():
     driver = SerialDriver(sys.argv[1])
 
     # app.run(host='0.0.0.0', port=5000)
-    socketio.run(app, debug=True)
+    socketio.run(app, debug=True, host="0.0.0.0", port=5000)
 
     driver.close()
 
