@@ -1,2 +1,5 @@
 pyserial
 flask
+gpiozero
+rpi-gpio
+lgpio
