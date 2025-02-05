@@ -233,9 +233,17 @@ resetSliders()
     // slider2Prev = slider2.value;
 // }
 
-function resetSliders() {
+function resetSlider() {
+    resetSlider1();
+    resetSlider2();
+}
+
+function resetSlider1() {
     slider1.value = 0;
     slider1Value.innerHTML = 0;
+}
+
+function resetSlider2() {
     slider2.value = 0;
     slider2Value.innerHTML = 0;
 }
@@ -293,41 +301,86 @@ const keys = {
 
 speed = 1
 
+function calculateSpeed() {
+    if (keys.w && keys.a) {
+        slider2.value = -speed/4;
+        slider2Value.innerHTML = -speed/4;
+        slider1.value = (-speed*3)/4;
+        slider1Value.innerHTML = (-speed*3)/4;
+    } else if (keys.w && keys.d) {
+        slider1.value = -speed/4;
+        slider1Value.innerHTML = -speed/4;
+        slider2.value = (-speed*3)/4;
+        slider2Value.innerHTML = (-speed*3)/4;
+    } else if (keys.s && keys.a) {
+        slider2.value = speed/4;
+        slider2Value.innerHTML = speed/4;
+        slider1.value = (speed*3)/4;
+        slider1Value.innerHTML = (speed*3)/4;
+    } else if (keys.s && keys.d) {
+        slider1.value = speed/4;
+        slider1Value.innerHTML = speed/4;
+        slider2.value = (speed*3)/4;
+        slider2Value.innerHTML = (speed*3)/4;
+    } else if (keys.w) {
+        slider2.value = -speed;
+        slider2Value.innerHTML = -speed;
+        slider1.value = -speed;
+        slider1Value.innerHTML = -speed;
+    } else if (keys.a) {
+        slider2.value = speed;
+        slider2Value.innerHTML = speed;
+        slider1.value = -speed;
+        slider1Value.innerHTML = -speed;
+    } else if (keys.s) {
+        slider2.value = speed;
+        slider2Value.innerHTML = speed;
+        slider1.value = speed;
+        slider1Value.innerHTML = speed;
+    } else if (keys.d) {
+        slider2.value = -speed;
+        slider2Value.innerHTML = -speed;
+        slider1.value = speed;
+        slider1Value.innerHTML = speed;
+    }
+}
+
 function handleKeyDown(event) {
     switch (event.key.toLowerCase()) {
         case 'w':
             keys.w = true;
             console.log("W key is pressed down");
-            slider2.value = -speed;
-            slider2Value.innerHTML = -speed;
-            slider1.value = -speed;
-            slider1Value.innerHTML = -speed;
+            // slider2.value = -speed;
+            // slider2Value.innerHTML = -speed;
+            // slider1.value = -speed;
+            // slider1Value.innerHTML = -speed;
             break;
         case 'a':
             keys.a = true;
             console.log("A key is pressed down");
-            slider2.value = speed;
-            slider2Value.innerHTML = speed;
-            slider1.value = -speed;
-            slider1Value.innerHTML = -speed;
+            // slider2.value = speed;
+            // slider2Value.innerHTML = speed;
+            // slider1.value = -speed;
+            // slider1Value.innerHTML = -speed;
             break;
         case 's':
             keys.s = true;
             console.log("S key is pressed down");
-            slider2.value = speed;
-            slider2Value.innerHTML = speed;
-            slider1.value = speed;
-            slider1Value.innerHTML = speed;
+            // slider2.value = speed;
+            // slider2Value.innerHTML = speed;
+            // slider1.value = speed;
+            // slider1Value.innerHTML = speed;
             break;
         case 'd':
             keys.d = true;
             console.log("D key is pressed down");
-            slider2.value = -speed;
-            slider2Value.innerHTML = -speed;
-            slider1.value = speed;
-            slider1Value.innerHTML = speed;
+            // slider2.value = -speed;
+            // slider2Value.innerHTML = -speed;
+            // slider1.value = speed;
+            // slider1Value.innerHTML = speed;
             break;
     }
+    calculateSpeed()
     sendSpeed()
 }
   
@@ -355,6 +408,7 @@ function handleKeyUp(event) {
             resetSliders()
             break;
     }
+    calculateSpeed()
     sendSpeed()
 }
   
