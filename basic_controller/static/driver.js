@@ -24,6 +24,63 @@ let rotation2 = 0;
 online = false;
 signal = 0;
 
+slider1 = document.getElementById("slider1")
+slider1Value = document.getElementById("slider1Value")
+
+slider2 = document.getElementById("slider2")
+slider2Value = document.getElementById("slider2Value")
+
+slider1Prev = 0
+slider2Prev = 0
+encoder1Prev = 0
+encoder2Prev = 0
+
+
+const socket = io();
+
+function sendSpeed() {
+    socket.emit("speed", {"rps1": slider1.value, "rps2": slider2.value})
+}
+
+
+socket.on('connect', function() {
+    log('Connected to server!');
+    slider1.addEventListener('input', sendSpeed);
+    slider2.addEventListener('input', sendSpeed);
+    setInterval(sendSpeed, 1000);
+    online=true
+})  
+
+socket.on("disconnect", function() {
+    logError("Couldn't reach server...")
+    online = false;
+})
+
+socket.on("connect_error", function() {
+    logError("Couldn't reach server...")
+    online = false;
+})
+
+socket.on("connect_timeout", function() {
+    logError("Couldn't reach server...")
+    online = false;
+})
+
+socket.on('position', function(data) {
+    if (data[0] != encoder1Prev || data[1] != encoder2Prev) {
+        log(`Encoder data received: ${data}`);
+    }
+    encoder1Prev = data[0];
+    encoder2Prev = data[1];
+
+    rotation1 = (parseFloat(data[0])/2740) * 2 * Math.PI
+    rotation2 = (parseFloat(data[1])/2740) * 2 * Math.PI
+    drawWheel(wheelCtx1, rotation1);
+    drawWheel(wheelCtx2, rotation2);
+})
+
+
+
 
 function log(commandText) {
     const newCommand = document.createElement('div');
@@ -124,61 +181,57 @@ drawWheel(wheelCtx1, 0);
 drawWheel(wheelCtx2, 0);
 
 
-slider1 = document.getElementById("slider1")
-slider1Value = document.getElementById("slider1Value")
 
-slider2 = document.getElementById("slider2")
-slider2Value = document.getElementById("slider2Value")
 
 resetSliders()
 
-slider1Prev = 0
-slider2Prev = 0
-encoder1Prev = 0
-encoder2Prev = 0
 
-async function sendSpeed() {
 
-    if (slider1Prev != slider1.value) {
-        log(`Sending Motor 1 Speed: ${slider1.value} RPS`)
-    }
+// async function sendSpeed() {
 
-    if (slider2Prev != slider2.value) {
-        log(`Sending Motor 2 Speed: ${slider2.value} RPS`)
-    }
+    
 
-    slider1Value.innerHTML = slider1.value;
-    slider2Value.innerHTML = slider2.value;
 
-    fetch(`/speed?rps1=${slider1.value}&rps2=${slider2.value}`)
-        .then(response => response.json())
-        .then(data => {
-            if (!online) {
-                log("Connected to server!")
-            }
-            online = true
-            if (data[0] != encoder1Prev || data[1] != encoder2Prev) {
-                log(`Encoder data received: ${data}`);
-            }
-            encoder1Prev = data[0];
-            encoder2Prev = data[1];
+    // if (slider1Prev != slider1.value) {
+    //     log(`Sending Motor 1 Speed: ${slider1.value} RPS`)
+    // }
 
-            rotation1 = (parseFloat(data[0])/2740) * 2 * Math.PI
-            rotation2 = (parseFloat(data[1])/2740) * 2 * Math.PI
-            drawWheel(wheelCtx1, rotation1);
-            drawWheel(wheelCtx2, rotation2);
-        })
-        .catch(error => {
-            console.error('Error with the GET request:', error);
-            // if (online) {
-                logError("Couldn't reach server...")
-            // }
-            online = false;
-        });
+    // if (slider2Prev != slider2.value) {
+    //     log(`Sending Motor 2 Speed: ${slider2.value} RPS`)
+    // }
 
-    slider1Prev = slider1.value;
-    slider2Prev = slider2.value;
-}
+    // slider1Value.innerHTML = slider1.value;
+    // slider2Value.innerHTML = slider2.value;
+
+    // fetch(`/speed?rps1=${slider1.value}&rps2=${slider2.value}`)
+    //     .then(response => response.json())
+    //     .then(data => {
+    //         if (!online) {
+    //             log("Connected to server!")
+    //         }
+    //         online = true
+    //         if (data[0] != encoder1Prev || data[1] != encoder2Prev) {
+    //             log(`Encoder data received: ${data}`);
+    //         }
+    //         encoder1Prev = data[0];
+    //         encoder2Prev = data[1];
+
+    //         rotation1 = (parseFloat(data[0])/2740) * 2 * Math.PI
+    //         rotation2 = (parseFloat(data[1])/2740) * 2 * Math.PI
+    //         drawWheel(wheelCtx1, rotation1);
+    //         drawWheel(wheelCtx2, rotation2);
+    //     })
+    //     .catch(error => {
+    //         console.error('Error with the GET request:', error);
+    //         // if (online) {
+    //             logError("Couldn't reach server...")
+    //         // }
+    //         online = false;
+    //     });
+
+    // slider1Prev = slider1.value;
+    // slider2Prev = slider2.value;
+// }
 
 function resetSliders() {
     slider1.value = 0;
@@ -187,7 +240,7 @@ function resetSliders() {
     slider2Value.innerHTML = 0;
 }
 
-setInterval(sendSpeed, 100);
+// setInterval(sendSpeed, 100);
 
 
 function updateOnlineDisplay() {
@@ -238,71 +291,75 @@ const keys = {
   };
 
 
-speed = 2
+speed = 1
 
 function handleKeyDown(event) {
     switch (event.key.toLowerCase()) {
-      case 'w':
-        keys.w = true;
-        console.log("W key is pressed down");
-        slider2.value = -speed;
-        slider2Value.innerHTML = -speed;
-        slider1.value = -speed;
-        slider1Value.innerHTML = -speed;
-        break;
-      case 'a':
-        keys.a = true;
-        console.log("A key is pressed down");
-        slider2.value = speed;
-        slider2Value.innerHTML = speed;
-        slider1.value = -speed;
-        slider1Value.innerHTML = -speed;
-        break;
-      case 's':
-        keys.s = true;
-        console.log("S key is pressed down");
-        slider2.value = speed;
-        slider2Value.innerHTML = speed;
-        slider1.value = speed;
-        slider1Value.innerHTML = speed;
-        break;
-      case 'd':
-        keys.d = true;
-        console.log("D key is pressed down");
-        slider2.value = -speed;
-        slider2Value.innerHTML = -speed;
-        slider1.value = speed;
-        slider1Value.innerHTML = speed;
-        break;
+        case 'w':
+            keys.w = true;
+            console.log("W key is pressed down");
+            slider2.value = -speed;
+            slider2Value.innerHTML = -speed;
+            slider1.value = -speed;
+            slider1Value.innerHTML = -speed;
+            break;
+        case 'a':
+            keys.a = true;
+            console.log("A key is pressed down");
+            slider2.value = speed;
+            slider2Value.innerHTML = speed;
+            slider1.value = -speed;
+            slider1Value.innerHTML = -speed;
+            break;
+        case 's':
+            keys.s = true;
+            console.log("S key is pressed down");
+            slider2.value = speed;
+            slider2Value.innerHTML = speed;
+            slider1.value = speed;
+            slider1Value.innerHTML = speed;
+            break;
+        case 'd':
+            keys.d = true;
+            console.log("D key is pressed down");
+            slider2.value = -speed;
+            slider2Value.innerHTML = -speed;
+            slider1.value = speed;
+            slider1Value.innerHTML = speed;
+            break;
     }
-  }
+    sendSpeed()
+}
   
   // Callback function for keyup events
-  function handleKeyUp(event) {
+function handleKeyUp(event) {
     switch (event.key.toLowerCase()) {
-      case 'w':
-        keys.w = false;
-        console.log("W key is released");
-        resetSliders()
-        break;
-      case 'a':
-        keys.a = false;
-        console.log("A key is released");
-        resetSliders()
-        break;
-      case 's':
-        keys.s = false;
-        console.log("S key is released");
-        resetSliders()
-        break;
-      case 'd':
-        keys.d = false;
-        console.log("D key is released");
-        resetSliders()
-        break;
+        case 'w':
+            keys.w = false;
+            console.log("W key is released");
+            resetSliders()
+            break;
+        case 'a':
+            keys.a = false;
+            console.log("A key is released");
+            resetSliders()
+            break;
+        case 's':
+            keys.s = false;
+            console.log("S key is released");
+            resetSliders()
+            break;
+        case 'd':
+            keys.d = false;
+            console.log("D key is released");
+            resetSliders()
+            break;
     }
-  }
+    sendSpeed()
+}
   
-  // Attach event listeners to the document
-  document.addEventListener('keydown', handleKeyDown);
-  document.addEventListener('keyup', handleKeyUp);
+// Attach event listeners to the document
+document.addEventListener('keydown', handleKeyDown);
+document.addEventListener('keyup', handleKeyUp);
+
+

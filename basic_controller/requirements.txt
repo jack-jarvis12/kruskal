@@ -3,3 +3,4 @@ flask
 gpiozero
 rpi-gpio
 lgpio
+flask_socketio
