@@ -233,7 +233,7 @@ resetSliders()
     // slider2Prev = slider2.value;
 // }
 
-function resetSlider() {
+function resetSliders() {
     resetSlider1();
     resetSlider2();
 }
