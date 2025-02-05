@@ -3,7 +3,7 @@ import sys
 import time
 from flask import Flask, request, jsonify
 from flask_socketio import SocketIO, emit
-# from gpiozero import PWMLED, Button
+from gpiozero import PWMLED, Button
 from signal import pause
 
 
@@ -95,28 +95,28 @@ def handle_message(msg):
     emit("position", positions)
 
 # Define the PWMLED and Button pins
-# led = PWMLED(17)  # GPIO pin 17 for PWMLED
-# button = Button(3)  # GPIO pin 3 for Button (updated)
+led = PWMLED(17)  # GPIO pin 17 for PWMLED
+button = Button(3)  # GPIO pin 3 for Button (updated)
 
 # State tracking for the LED mode
-# pulsing = True
+pulsing = True
 
-# def toggle_led():
-# 	global pulsing
-# 	pulsing = not pulsing
-# 	if not pulsing:
-# 		led.value = 0.1
-# 	else:
-# 		led.pulse(fade_in_time=0.4, fade_out_time=0.6)
+def toggle_led():
+	global pulsing
+	pulsing = not pulsing
+	if not pulsing:
+		led.value = 0.1
+	else:
+		led.pulse(fade_in_time=0.4, fade_out_time=0.6)
 
 def main():
     if len(sys.argv) != 2:
         print("Usage: python script.py <serial_port>")
         sys.exit(1)
     
-    # button.when_pressed = toggle_led
+    button.when_pressed = toggle_led
 
-    # toggle_led()
+    toggle_led()
 
     global driver
     driver = SerialDriver(sys.argv[1])
