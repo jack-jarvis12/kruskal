@@ -21,7 +21,7 @@ wheelCanvas1.height = wheelCanvas2.height = 300;
 let rotation1 = 0;
 let rotation2 = 0;
 
-online = true;
+online = false;
 signal = 0;
 
 slider1 = document.getElementById("slider1")
@@ -44,10 +44,26 @@ function sendSpeed() {
 
 
 socket.on('connect', function() {
-    console.log('Connected to WebSocket server');
+    log('Connected to server!');
     slider1.addEventListener('input', sendSpeed);
     slider2.addEventListener('input', sendSpeed);
     setInterval(sendSpeed, 1000);
+    online=true
+})  
+
+socket.on("disconnect", function() {
+    logError("Couldn't reach server...")
+    online = false;
+})
+
+socket.on("connect_error", function() {
+    logError("Couldn't reach server...")
+    online = false;
+})
+
+socket.on("connect_timeout", function() {
+    logError("Couldn't reach server...")
+    online = false;
 })
 
 socket.on('position', function(data) {

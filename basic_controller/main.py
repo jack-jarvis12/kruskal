@@ -6,6 +6,8 @@ from flask_socketio import SocketIO, emit
 # from gpiozero import PWMLED, Button
 from signal import pause
 
+
+
 class SerialDriver:
     def __init__(self, serial_port):
         self.ser = serial.Serial(serial_port, baudrate=57600, timeout=1)
